@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import path from "path"; // Ensure 'path' is imported
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
@@ -23,12 +23,12 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "..", "attached_assets"),
     },
   },
-  root: import.meta.dirname,
+  root: import.meta.dirname, // Keep this as it is
 
   build: {
-    // Add this explicit input for index.html
     rollupOptions: {
-      input: 'index.html' // <--- ADD THIS LINE
+      // *** CHANGE THIS LINE ***
+      input: path.resolve(import.meta.dirname, 'index.html') 
     },
     outDir: "dist",
     emptyOutDir: true,
