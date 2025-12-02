@@ -32,8 +32,12 @@ export default function ContactSection() {
   ];
 
   const handleEmailClick = () => {
-    window.location.href = "mailto:kumar.shivam@example.com";
-  };
+  window.open(
+    "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ks02122004@gmail.com",
+    "_blank"
+  );
+};
+
 
   const handleResumeDownload = () => {
     // TODO: Implement actual resume download
