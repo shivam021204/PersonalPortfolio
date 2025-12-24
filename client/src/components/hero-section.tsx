@@ -1,5 +1,5 @@
 import { FaInstagram, FaLinkedin, FaGithub, FaArrowDown, FaCheck } from "react-icons/fa";
-import profileImage from "@assets/profile portfolio_1751277415318.jpg";
+import profileImage from "@assets/shivam picture.jpeg";
 
 export default function HeroSection() {
   const scrollToAbout = () => {
