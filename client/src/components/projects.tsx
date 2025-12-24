@@ -78,7 +78,7 @@ const Projects: React.FC = () => {
                 />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-              <p className="text-blue-300 text-sm mb-2">{project.period}</p>
+              <p className="text-blue-300 text-sm mb-2 ">{project.period}</p>
               <p className="text-slate-300 text-sm mb-2 whitespace-pre-line">{project.description}</p>
               <p className="text-slate-50 font-semibold text-sm mb-1">Tech Stack: {project.techStack}</p>
               <p className="text-slate-400 text-sm mb-2">Skills: {project.skills}</p>
