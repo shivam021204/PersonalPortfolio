@@ -82,46 +82,48 @@ const Projects: React.FC = () => {
               <p className="text-slate-300 text-sm mb-2 whitespace-pre-line">{project.description}</p>
               <p className="text-slate-50 font-semibold text-sm mb-1">Tech Stack: {project.techStack}</p>
               <p className="text-slate-400 text-sm mb-2">Skills: {project.skills}</p>
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 font-semibold text-sm"
-                >
-                  View Project
-                </a>
-              )}
             </div>
           ))}
         </div>
 
-        {/* Modal */}
+        {/* Modal with live iframe */}
         {selectedProject && (
-          <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
-            <div className="bg-slate-900 rounded-2xl p-6 w-full md:w-2/3 max-w-3xl relative">
+          <div
+            className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
+            onClick={() => setSelectedProject(null)} // Click on overlay closes modal
+          >
+            <div
+              className="bg-slate-900 rounded-2xl p-6 w-full md:w-4/5 max-w-5xl relative"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+            >
               <button
                 className="absolute top-4 right-4 text-white text-2xl font-bold"
                 onClick={() => setSelectedProject(null)}
               >
                 ×
               </button>
-              <div className="overflow-hidden rounded-xl mb-4 border border-slate-700/50 p-1 bg-slate-800">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-64 object-cover rounded-lg"
-                />
-              </div>
+              
               <h3 className="text-2xl font-bold text-white mb-2">{selectedProject.title}</h3>
-              <p className="text-blue-300 mb-2">{selectedProject.period}</p>
-              <p className="text-slate-300 mb-2 whitespace-pre-line">{selectedProject.description}</p>
+              <p className="text-blue-300 mb-4">{selectedProject.period}</p>
+
+              {/* iframe for live site */}
+              {selectedProject.link && (
+                <div className="border border-slate-700/50 rounded-xl overflow-hidden mb-4">
+                  <iframe
+                    src={selectedProject.link}
+                    className="w-full h-[500px]"
+                    title={selectedProject.title}
+                  />
+                </div>
+              )}
+
+              {/* Open in new tab button */}
               {selectedProject.link && (
                 <a
                   href={selectedProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 font-semibold"
+                  className="inline-block px-6 py-2 text-sm font-semibold bg-blue-400 text-white rounded-xl hover:bg-blue-500 transition-colors"
                 >
                   Open in New Tab
                 </a>
