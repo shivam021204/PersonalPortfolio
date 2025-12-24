@@ -3,6 +3,7 @@ import HeroSection from "@/components/hero-section";
 import AboutSection from "@/components/about-section";
 import SkillsSection from "@/components/skills-section";
 import ContactSection from "@/components/contact-section";
+import Projects from  "@/components/projects";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <AboutSection />
+      <Projects/>
       <SkillsSection />
       <ContactSection />
       <Footer />
