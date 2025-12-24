@@ -5,7 +5,7 @@ export default function AboutSection() {
     {
       icon: FaMapMarkerAlt,
       title: "Location",
-      subtitle: "Ranchi, Jharkhand",
+      subtitle: "Noida, UP",
       iconColor: "text-blue-400",
       bgColor: "bg-blue-500/20"
     },
@@ -21,7 +21,7 @@ export default function AboutSection() {
       icon: FaSchool,
       title: "Previous Education",
       subtitle: "DAV Public School Bariatu",
-      detail: "Ranchi, Jharkhand",
+      detail: "Noida,UP",
       iconColor: "text-purple-400",
       bgColor: "bg-purple-500/20"
     }

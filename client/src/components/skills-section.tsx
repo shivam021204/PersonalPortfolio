@@ -1,14 +1,19 @@
-import { 
-  SiJavascript, 
-  SiHtml5, 
-  SiCss3, 
-  SiPython, 
-  SiCplusplus, 
-  SiReact,
-  SiNodedotjs
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
-import { FaCode, FaDatabase } from "react-icons/fa";
+
+import { 
+  FaJava,
+  FaLaptopCode,
+  FaCode,
+  FaMobileAlt
+} from "react-icons/fa";
+
+import { MdGridOn } from "react-icons/md";
+
+
 
 export default function SkillsSection() {
   const skills = [
@@ -37,6 +42,38 @@ export default function SkillsSection() {
       hoverBorder: "hover:border-blue-500/50"
     },
     {
+      name: "Java",
+      icon: FaJava,
+      description: "Object-oriented programming",
+      color: "text-red-400",
+      bgColor: "bg-red-500/20",
+      hoverBorder: "hover:border-red-500/50"
+    },
+    {
+     name: "Frontend / UI Development",
+    icon: FaLaptopCode,
+    description: "Designing and building user interfaces",
+    color: "text-pink-500",
+    bgColor: "bg-pink-500/20",
+    hoverBorder: "hover:border-pink-500/50"
+  },
+  {
+  name: "Responsive Design",
+    icon: FaMobileAlt,
+    description: "Layouts that adapt to screen sizes",
+    color: "text-sky-400",
+    bgColor: "bg-sky-400/20",
+    hoverBorder: "hover:border-sky-400/50"
+  },
+  {
+    name: "DOM Manipulation",
+    icon: FaCode,
+    description: "Dynamic interaction with web page elements",
+    color: "text-yellow-500",
+    bgColor: "bg-yellow-500/20",
+    hoverBorder: "hover:border-yellow-500/50"
+  }
+    /*{
       name: "Python",
       icon: SiPython,
       description: "Versatile programming",
@@ -51,15 +88,8 @@ export default function SkillsSection() {
       color: "text-purple-400",
       bgColor: "bg-purple-500/20",
       hoverBorder: "hover:border-purple-500/50"
-    },
-    {
-      name: "Java",
-      icon: FaJava,
-      description: "Object-oriented programming",
-      color: "text-red-400",
-      bgColor: "bg-red-500/20",
-      hoverBorder: "hover:border-red-500/50"
-    }
+    },*/
+    
   ];
 
   const learningSkills = [
