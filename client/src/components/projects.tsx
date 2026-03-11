@@ -55,7 +55,7 @@ Supports dark/light mode and is deployed on Vercel.`,
     techStack: "HTML | CSS | JavaScript",
     skills: "HTML5 · CSS · JavaScript · DOM · Frontend Development",
     image: valentineImg,
-    link: "https://gamehub-fungames.vercel.app",
+    link: "https://valentine-web-livid.vercel.app",
   },
 ];
 
