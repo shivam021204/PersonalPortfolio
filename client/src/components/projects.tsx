@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import calculatorImg from "@assets/calculator.jpeg";
 import gamehubImg from "@assets/pic.jpeg";
-import cineAURAImg from "@assets/Cinepic.jpeg";
+import cineAURAImg from "@assets/cinepic.jpeg";
 import valentineImg from "@assets/valentine.jpeg";
 
 type Project = {
@@ -49,14 +49,15 @@ Supports dark/light mode and is deployed on Vercel.`,
     link: "https://cineaura-site.vercel.app",
   },
   {
-    title: "Valentine's ",
-    period: "feb 2026 - feb 2026",
-    description: ` interactive Valentine-themed web experience that engages users through playful UI interactions and dynamic responses`,
-    techStack: "HTML | CSS | JavaScript",
-    skills: "HTML5 · CSS · JavaScript · DOM · Frontend Development",
-    image: valentineImg,
-    link: "https://valentine-web-livid.vercel.app",
-  },
+  title: "Valentine's Website",
+  period: "Feb 2026 - Feb 2026",
+  description: `An interactive Valentine-themed web experience 
+that engages users through playful UI interactions and dynamic responses.`,
+  techStack: "HTML | CSS | JavaScript",
+  skills: "HTML5 · CSS · JavaScript · DOM · Frontend Development",
+  image: valentineImg,
+  link: "https://valentine-web-livid.vercel.app",
+},
 ];
 
 const Projects: React.FC = () => {
@@ -119,11 +120,8 @@ const Projects: React.FC = () => {
               {/* iframe for live site */}
               {selectedProject.link && (
                 <div className="border border-slate-700/50 rounded-xl overflow-hidden mb-4">
-                  <iframe
-                    src={selectedProject.link}
-                    className="w-full h-[500px]"
-                    title={selectedProject.title}
-                  />
+                
+                <img src={selectedProject.image} className="w-full rounded-xl mb-4" />  
                 </div>
               )}
 
