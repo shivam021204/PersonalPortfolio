@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import calculatorImg from "@assets/calculator.jpeg";
 import gamehubImg from "@assets/pic.jpeg";
-import cineAURAImg from "@assets/cinepic.jpeg";
+import cineAURAImg from "@assets/Cinepic.jpeg";
 import valentineImg from "@assets/valentine.jpeg";
 
 type Project = {
@@ -120,8 +120,11 @@ const Projects: React.FC = () => {
               {/* iframe for live site */}
               {selectedProject.link && (
                 <div className="border border-slate-700/50 rounded-xl overflow-hidden mb-4">
-                
-                <img src={selectedProject.image} className="w-full rounded-xl mb-4" />  
+                  <iframe
+                    src={selectedProject.link}
+                    className="w-full h-[500px]"
+                    title={selectedProject.title}
+                  />
                 </div>
               )}
 
