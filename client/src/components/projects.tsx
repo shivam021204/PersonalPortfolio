@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import calculatorImg from "@assets/calculator.jpeg";
 import gamehubImg from "@assets/pic.jpeg";
 import cineAURAImg from "@assets/Cinepic.jpeg";
+import valentineImg from "@assets/valentine.jpeg";
 
 type Project = {
   title: string;
@@ -46,6 +47,15 @@ Supports dark/light mode and is deployed on Vercel.`,
     skills: "JavaScript · HTML5 · CSS",
     image: cineAURAImg,
     link: "https://cineaura-site.vercel.app",
+  },
+  {
+    title: "Valentine's ",
+    period: "feb 2026 - feb 2026",
+    description: ` interactive Valentine-themed web experience that engages users through playful UI interactions and dynamic responses`,
+    techStack: "HTML | CSS | JavaScript",
+    skills: "HTML5 · CSS · JavaScript · DOM · Frontend Development",
+    image: valentineImg,
+    link: "https://gamehub-fungames.vercel.app",
   },
 ];
 
