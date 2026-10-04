@@ -3,6 +3,7 @@ import cineAURAImg from "@assets/Cinepic.jpeg";
 import gamehubImg from "@assets/pic.jpeg";
 import Reveal from "@/components/scroll-reveal";
 import Spotifyimg from "@assets/spotifyClone.png";
+import avengers from "@assets/avengers.jpeg";
 
 type Project = {
   title: string;
@@ -15,8 +16,6 @@ type Project = {
   image?: string;
 };
 
-// NOTE: EngiConnect is still a placeholder — I don't have its description,
-// tech stack, or links yet. Replace the TODO fields once you share them.
 const projects: Project[] = [
   {
     title: "Avengers 3D [in progress]",
@@ -25,6 +24,7 @@ const projects: Project[] = [
     github: "https://github.com/shivam021204",
     description: "A fully immersive 3D Avengers experience that takes users through the MCU timeline with cinematic camera movement, animated environments, movie posters, and interactive storytelling. As you travel through each era, discover the story of the Avengers and their heroes while listening to iconic music from their movies, all within a dynamic, futuristic 3D world.",
     features: [],
+    image:avengers,
   },
   {
     title: "CineAURA",
@@ -45,13 +45,13 @@ const projects: Project[] = [
   {
     title: "Spotify Clone",
     year: "2026",
-    tags: ["Authentication","javaScript","UI/UX"],
+    tags: ["Authentication", "javaScript", "UI/UX"],
     github: "https://github.com/shivam021204/spotify-clone",
     live: "https://spotifyclone8868.vercel.app",
     description:
       "Built a responsive Spotify-inspired web app focusing on UI/UX attractiveness and performance optimization. Implemented authentication workflows using JWT and OAuth concepts, integrated dynamic content handling with Vanilla JavaScript, and designed efficient database interactions for user data and playlists. Emphasized clean UI design, seamless user experience, and scalable architecture.",
     features: [],
-    image:Spotifyimg,
+    image: Spotifyimg,
   },
   {
     title: "GameHub",
@@ -66,54 +66,71 @@ const projects: Project[] = [
   },
 ];
 
-// Collapsed card — fixed, compact, same height for every project. Clicking
-// it opens the detail popup instead of expanding inline, so no other card
-// ever shifts, resizes, or re-flows.
+// Collapsed card: the left part opens the popup, GitHub / Live Site links
+// sit beside it so they're reachable without opening anything.
 function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void }) {
   return (
-    <button
-      onClick={onOpen}
-      className="w-full text-left p-4 flex items-center gap-4 rounded-md border border-[var(--border)] bg-[var(--background)] hover:border-[var(--primary)]/50 transition-colors duration-200"
-    >
-      {project.image ? (
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-14 h-14 rounded-md object-cover border border-[var(--border)] flex-shrink-0"
-        />
-      ) : (
-        <div className="w-14 h-14 rounded-md border border-[var(--border)] flex items-center justify-center text-[var(--muted-foreground)] font-mono-code text-xs flex-shrink-0">
-          {project.title.slice(0, 2).toUpperCase()}
-        </div>
-      )}
-
-      <div className="min-w-0 flex-1">
-        <h3 className="text-base md:text-lg font-bold text-[var(--foreground)] truncate">
-          {project.title}
-        </h3>
-        <p className="font-mono-code text-xs text-[var(--muted-foreground)] mb-1.5">{project.year}</p>
-        {project.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-[10px] font-mono-code px-1.5 py-0.5 rounded border border-[var(--border)] text-[var(--muted-foreground)]"
-              >
-                {tag}
-              </span>
-            ))}
+    <div className="w-full p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 rounded-md border border-[var(--border)] bg-[var(--background)] hover:border-[var(--primary)]/50 transition-colors duration-200">
+      <button onClick={onOpen} className="flex items-center gap-4 flex-1 min-w-0 text-left">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-14 h-14 rounded-md object-cover border border-[var(--border)] flex-shrink-0"
+          />
+        ) : (
+          <div className="w-14 h-14 rounded-md border border-[var(--border)] flex items-center justify-center text-[var(--muted-foreground)] font-mono-code text-xs flex-shrink-0">
+            {project.title.slice(0, 2).toUpperCase()}
           </div>
         )}
-      </div>
 
-      <span className="flex-shrink-0 font-mono-code text-xs text-[var(--primary)]">Show more</span>
-    </button>
+        <div className="min-w-0 flex-1">
+          <h3 className="text-base md:text-lg font-bold text-[var(--foreground)] truncate">
+            {project.title}
+          </h3>
+          <p className="font-mono-code text-xs text-[var(--muted-foreground)] mb-1.5">{project.year}</p>
+          {project.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[10px] font-mono-code px-1.5 py-0.5 rounded border border-[var(--border)] text-[var(--muted-foreground)]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <span className="flex-shrink-0 font-mono-code text-xs text-[var(--primary)]">Show more</span>
+      </button>
+
+      <div className="flex gap-2 flex-shrink-0">
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs font-medium px-3 py-1.5 rounded-md border border-[var(--border)] text-[var(--foreground)] hover:border-[var(--primary)] transition-colors"
+        >
+          GitHub
+        </a>
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-medium px-3 py-1.5 rounded-md bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 transition-opacity"
+          >
+            Live Site
+          </a>
+        )}
+      </div>
+    </div>
   );
 }
 
-// Elevated popup — description, features, demo preview, and the GitHub /
-// Live Site buttons. Renders once at the section level, above everything,
-// so it never touches the project list's layout.
+// Elevated popup: description, features, demo preview, and links.
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

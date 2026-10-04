@@ -18,7 +18,7 @@ export default function AboutSection() {
       icon: FaSchool,
       title: "Previous Education",
       subtitle: "DAV Public School Bariatu",
-      detail: "Noida, UP",
+      detail: "Ranchi",
     },
   ];
 
@@ -76,12 +76,10 @@ export default function AboutSection() {
               <div className="p-8 space-y-4">
                 <h3 className="text-2xl font-bold text-[var(--foreground)]">My Journey</h3>
                 <p className="text-[var(--muted-foreground)] leading-relaxed">
-                 I'm Kumar Shivam, a Computer Science student pursuing my B.Tech in CSE Core at VIT Bhopal. My interest in programming started at DAV Public School Bariatu, Ranchi, and has grown through the projects and experiences I've taken on since..
+                 I'm Kumar Shivam, a Computer Science student pursuing my B.Tech in CSE Core at VIT Bhopal. My interest in programming started at school and has grown through the projects and experiences I've taken on since.
                 </p>
                 <p className="text-[var(--muted-foreground)] leading-relaxed">
-                  Currently, I'm focused on strengthening my CS fundamentals, exploring new technologies, and improving my development skills. I learn best by building practical, complete projects and turning ideas into things that actually work.
-                  Long-term, I want to be a developer who ships things
-                  people actually use.
+                 Currently, I'm focused on strengthening my CS fundamentals, exploring web development and AI, and improving my development skills. I'm particularly interested in understanding how AI can be integrated into practical applications and solving real-world problems with technology. I learn best by building practical, complete projects and turning ideas into things that actually work. Long-term, I want to be a developer who ships things people actually use.
                 </p>
               </div>
             </div>

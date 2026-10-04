@@ -54,7 +54,7 @@ export default function HeroSection() {
 
           <p className="text-base md:text-lg text-[var(--muted-foreground)] mb-10 max-w-md leading-relaxed">
             CSE Core student at VIT Bhopal. I build small, interactive
-            web tools — from scratch, in vanilla JS — and I'm currently
+            web tools from scratch, in vanilla JS and I'm currently
             picking up React and backend fundamentals.
           </p>
 

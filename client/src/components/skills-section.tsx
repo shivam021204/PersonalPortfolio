@@ -16,7 +16,7 @@ const skills = [
   { name: "JavaScript", icon: SiJavascript, description: "Interactive web development" },
   { name: "HTML", icon: SiHtml5, description: "Web structure & markup" },
   { name: "CSS", icon: SiCss3, description: "Styling & design" },
-  { name: "Data Structures And Algorithms (medium)", icon: FaCode, description: "Styling & design" },
+  { name: "Data Structures And Algorithms (medium)", icon: FaCode, description: "Problem Solving" },
   { name: "Java", icon: FaJava, description: "Object-oriented programming" },
   { name: "Frontend / UI", icon: FaLaptopCode, description: "Building user interfaces" },
   { name: "Responsive Design", icon: FaMobileAlt, description: "Layouts that adapt to screen size" },
@@ -57,7 +57,7 @@ export default function SkillsSection() {
               <span className="window-filename">skills.sh</span>
             </div>
             <div className="p-6 sm:p-8 font-mono-code text-sm sm:text-base space-y-3">
-              <p className="text-[var(--primary)]">$ skills --list</p>
+              <p className="text-[var(--primary)]">$ skills list</p>
               {skills.map((skill) => {
                 const Icon = skill.icon;
                 return (
@@ -84,7 +84,7 @@ export default function SkillsSection() {
               <span className="window-filename">currently-learning.sh</span>
             </div>
             <div className="p-6 sm:p-8 font-mono-code text-sm sm:text-base space-y-2">
-              <p className="text-[var(--primary)]">$ learning --status</p>
+              <p className="text-[var(--primary)]">$ learning status</p>
               {learning.map((item) => (
                 <p key={item} className="text-[var(--muted-foreground)]">
                   <span className="text-[var(--foreground)]">[in progress]</span> {item}
