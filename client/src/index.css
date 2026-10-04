@@ -1,59 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 32%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --popover: hsl(222, 84%, 5%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 5%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 32%, 17%);
-  --input: hsl(217, 32%, 17%);
-  --primary: hsl(207, 90%, 54%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(217, 32%, 17%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --accent: hsl(217, 32%, 17%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(0, 84%, 65%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(207, 90%, 54%);
+  /* Dark theme (default) — warm graphite base. */
+  --background: hsl(30, 8%, 6%);
+  --foreground: hsl(40, 22%, 93%);
+  --muted: hsl(30, 7%, 11%);
+  --muted-foreground: hsl(30, 6%, 55%);
+  --popover: hsl(30, 8%, 8%);
+  --popover-foreground: hsl(40, 22%, 93%);
+  --card: hsl(30, 8%, 8%);
+  --card-foreground: hsl(40, 22%, 93%);
+  --border: hsl(30, 6%, 18%);
+  --input: hsl(30, 6%, 18%);
+  --primary: hsl(38, 70%, 55%);
+  --primary-foreground: hsl(30, 8%, 6%);
+  --secondary: hsl(30, 7%, 13%);
+  --secondary-foreground: hsl(40, 22%, 93%);
+  --accent: hsl(30, 7%, 13%);
+  --accent-foreground: hsl(40, 22%, 93%);
+  --destructive: hsl(6, 72%, 58%);
+  --destructive-foreground: hsl(40, 22%, 93%);
+  --ring: hsl(38, 70%, 55%);
   --radius: 0.5rem;
-  --chart-1: hsl(207, 90%, 54%);
-  --chart-2: hsl(173, 58%, 39%);
-  --chart-3: hsl(197, 37%, 24%);
-  --chart-4: hsl(43, 74%, 66%);
-  --chart-5: hsl(27, 87%, 67%);
+  --chrome-bg: hsl(30, 8%, 9%);
+  --chrome-dot: hsl(30, 6%, 30%);
+
+  /* mouse-reactive glow (see cursor-glow.tsx) */
+  --mouse-x: 50%;
+  --mouse-y: 30%;
+  --mouse-hue: 155;
 }
 
-.dark {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 32%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --popover: hsl(222, 84%, 5%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 5%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 32%, 17%);
-  --input: hsl(217, 32%, 17%);
-  --primary: hsl(207, 90%, 54%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(217, 32%, 17%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --accent: hsl(217, 32%, 17%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(0, 84%, 65%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(207, 90%, 54%);
-}
+:root.light {
+  --background: hsl(0, 0%, 100%);          /* Pure white */
+  --foreground: hsl(220, 15%, 12%);
 
+  --card: hsl(40, 25%, 97%);               /* Very light beige */
+  --card-foreground: hsl(220, 15%, 12%);
+
+  --muted: hsl(40, 20%, 95%);
+  --muted-foreground: hsl(220, 8%, 42%);
+
+  --border: hsl(35, 15%, 89%);              /* Soft beige border */
+
+  --primary: hsl(28, 75%, 42%);
+  --primary-foreground: hsl(0, 0%, 100%);
+
+  --secondary: hsl(40, 18%, 94%);
+  --secondary-foreground: hsl(220, 15%, 15%);
+
+  --accent: hsl(40, 25%, 94%);
+  --accent-foreground: hsl(28, 65%, 35%);
+
+  --ring: hsl(28, 75%, 42%);
+}
 @layer base {
   * {
     @apply border-border;
@@ -64,46 +68,153 @@
   }
 
   body {
-    @apply font-inter antialiased bg-slate-900 text-slate-50;
-    font-family: 'Inter', sans-serif;
+    @apply font-sans antialiased bg-[var(--background)] text-[var(--foreground)];
+    font-family: 'Space Grotesk', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  .font-inter {
-    font-family: 'Inter', sans-serif;
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.01em;
   }
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-in-out;
+  .cursor-glow {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    filter: blur(50px);
+    background: radial-gradient(
+      480px circle at var(--mouse-x) var(--mouse-y),
+      hsla(var(--mouse-hue), 30%, 96%, 0.9),
+      hsla(var(--mouse-hue), 55%, 75%, 0.35) 45%,
+      transparent 72%
+    );
+    transition: opacity 0.3s ease;
   }
 
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out;
+  .window-frame {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--card);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
   }
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+  .window-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--chrome-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  .window-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--chrome-dot);
+    transition: background-color 0.3s ease;
   }
 
-  @keyframes slideUp {
-    0% { 
-      transform: translateY(20px); 
-      opacity: 0; 
+  .window-dot.accent {
+    background: var(--primary);
+  }
+
+  .window-filename {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    margin-left: 4px;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .type-cursor {
+    display: inline-block;
+    width: 0.55ch;
+    background: var(--primary);
+    animation: blink 1s step-start infinite;
+    margin-left: 2px;
+  }
+
+  /* Project detail popup entrance — a quick elevated pop/settle, not a
+     flat fade. Used by the "Show more" modal in projects.tsx. */
+  @keyframes modal-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.92) translateY(16px);
     }
-    100% { 
-      transform: translateY(0); 
-      opacity: 1; 
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
     }
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+  @keyframes modal-backdrop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+
+  /* Section-level 3D reveal — one per section, dramatic tilt + spring landing */
+  .reveal {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(-55deg) rotateY(-5deg) translateY(90px) scale(0.86);
+    transform-origin: bottom center;
+    box-shadow: 0 70px 90px -30px rgba(0, 0, 0, 0.6);
+    transition: opacity 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.9s ease;
+    will-change: transform, opacity;
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  /* Lighter reveal for things INSIDE a section card */
+  .reveal-item {
+    opacity: 0;
+    transform: perspective(900px) rotateX(-18deg) translateY(26px) scale(0.97);
+    transform-origin: bottom center;
+    transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .reveal-item.revealed {
+    opacity: 1;
+    transform: perspective(900px) rotateX(0deg) translateY(0) scale(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-item {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      box-shadow: none;
+    }
   }
 }

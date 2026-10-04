@@ -3,7 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    
+
+    <!-- Apply saved theme before first paint, to avoid a dark/light flash -->
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("theme") === "light") {
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <title>Kumar Shivam - Portfolio</title>
     <meta name="description" content="Kumar Shivam - Computer Science Student at VIT Bhopal. Passionate about ful " />
     <meta name="keywords" content="Kumar Shivam, Portfolio, VIT Bhopal, Skilled in frontend and UI development, with hands-on experience in DOM manipulation, JavaScript event handling, and responsive layouts using CSS Flexbox and Grid." />

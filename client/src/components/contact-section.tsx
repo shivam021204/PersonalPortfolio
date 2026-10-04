@@ -1,104 +1,119 @@
-import { FaInstagram, FaLinkedin, FaGithub, FaEnvelope, FaDownload } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaDownload } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import Reveal from "@/components/scroll-reveal";
+import resume from "../../../attached_assets/resume.pdf";
 
 export default function ContactSection() {
   const socialContacts = [
     {
-      name: "Instagram",
-      icon: FaInstagram,
-      description: "Follow my journey",
-      username: "@kumar_shivam8868",
-      href: "https://www.instagram.com/kumar_shivam8868/",
-      gradient: "from-purple-500 to-pink-500",
-      hoverBorder: "hover:border-purple-500/50"
-    },
-    {
       name: "LinkedIn",
       icon: FaLinkedin,
-      description: "Professional network",
       username: "Kumar Shivam",
       href: "https://www.linkedin.com/in/kumar-shivam-8a9529325/",
-      gradient: "from-blue-600 to-blue-800",
-      hoverBorder: "hover:border-blue-500/50"
     },
     {
       name: "GitHub",
       icon: FaGithub,
-      description: "Code repositories",
       username: "shivam021204",
       href: "https://github.com/shivam021204",
-      gradient: "from-gray-700 to-gray-900",
-      hoverBorder: "hover:border-gray-500/50"
-    }
+    },
+    {
+      name: "LeetCode",
+      icon: SiLeetcode,
+      username: "kumar_shivam8868",
+      href: "https://leetcode.com/u/kumar_shivam8868/",
+    },
+    {
+      name: "Email",
+      icon: FaEnvelope,
+      username: "ks02122004@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ks02122004@gmail.com",
+    },
   ];
 
-  const handleEmailClick = () => {
-  window.open(
-    "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ks02122004@gmail.com",
-    "_blank"
-  );
+  const handleResumeDownload = () => {
+  const link = document.createElement("a");
+  link.href = resume;
+  link.download = "Kumar_Shivam_Resume.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 };
 
-
-  const handleResumeDownload = () => {
-    // TODO: Implement actual resume download
-    console.log("Resume download functionality to be implemented");
-  };
-
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-400">Let's Connect</h2>
-        <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto">
-          I'm always open to discussing new opportunities, collaborating on projects, or simply connecting with fellow developers.
+    <section id="contact" className="px-4 sm:px-6 lg:px-8 my-14 md:my-20">
+      <Reveal className="w-full sm:w-[90%] lg:w-[65%] lg:max-w-[1200px] mx-auto rounded-md border border-[var(--border)] bg-[var(--card)] p-6 sm:p-10 md:p-14 text-center">
+        <p className="section-eyebrow">04 · Connect</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--foreground)]">
+          Let's Connect
+        </h2>
+        <p className="text-lg text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto">
+          Open to discussing new opportunities, collaborating on projects, or
+          just connecting with fellow developers.
         </p>
-        
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {socialContacts.map((contact, index) => {
-            const IconComponent = contact.icon;
+            const Icon = contact.icon;
             return (
-              <a
-                key={index}
-                href={contact.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className={`bg-slate-700/50 rounded-2xl p-8 border border-slate-600/50 ${contact.hoverBorder} transition-all duration-300 hover:scale-105 hover:bg-slate-600/50`}>
-                  <div className={`w-16 h-16 bg-gradient-to-br ${contact.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="text-white text-2xl" />
+              <Reveal key={contact.name} variant="item" delay={index * 80}>
+                <a
+                  href={contact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-md p-5 border border-[var(--border)] bg-[var(--background)] hover:border-[var(--primary)] hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <div className="w-11 h-11 rounded-md flex items-center justify-center border border-[var(--border)] mx-auto mb-3">
+                    <Icon className="text-[var(--primary)] text-lg" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{contact.name}</h3>
-                  <p className="text-slate-300">{contact.description}</p>
-                  <p className="text-slate-400 text-sm mt-2">{contact.username}</p>
-                </div>
-              </a>
+                  <h3 className="text-sm font-semibold text-[var(--foreground)] mb-1">
+                    {contact.name}
+                  </h3>
+                  <p className="text-[var(--muted-foreground)] text-xs opacity-70 truncate">
+                    {contact.username}
+                  </p>
+                </a>
+              </Reveal>
             );
           })}
         </div>
-        
-        <div className="bg-slate-700/50 rounded-2xl p-8 backdrop-blur-sm border border-slate-600/50">
-          <h3 className="text-2xl font-bold mb-4 text-white">Get In Touch</h3>
-          <p className="text-slate-300 mb-6">
-            Whether you have a project in mind, want to collaborate, or just want to say hello, I'd love to hear from you!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={handleEmailClick}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-            >
-              <FaEnvelope className="mr-2" />
-              Send Email
-            </button>
-            <button
-              onClick={handleResumeDownload}
-              className="inline-flex items-center px-6 py-3 border border-slate-500 text-base font-medium rounded-full text-slate-300 hover:text-white hover:border-slate-400 transition-colors duration-200"
-            >
-              <FaDownload className="mr-2" />
-              Download Resume
-            </button>
+
+        <Reveal variant="item" delay={200}>
+          <div className="window-frame text-left">
+            <div className="window-bar">
+              <span className="window-dot accent" />
+              <span className="window-dot" />
+              <span className="window-dot" />
+              <span className="window-filename">contact.sh</span>
+            </div>
+            <div className="p-8 text-center">
+              <h3 className="text-2xl font-bold mb-4 text-[var(--foreground)]">Get In Touch</h3>
+              <p className="text-[var(--muted-foreground)] mb-6">
+                Have a project in mind, want to collaborate, or just want to say
+                hello? I'd love to hear from you.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ks02122004@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md text-sm font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 transition-opacity"
+                >
+                  <FaEnvelope />
+                  Send Email
+                </a>
+                <button
+                  onClick={handleResumeDownload}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md text-sm font-medium border border-[var(--border)] text-[var(--foreground)] hover:border-[var(--primary)] transition-colors duration-200"
+                >
+                  <FaDownload />
+                  Download Resume
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </Reveal>
+      </Reveal>
     </section>
   );
 }
